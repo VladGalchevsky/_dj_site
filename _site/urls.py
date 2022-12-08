@@ -23,10 +23,17 @@ if settings.DEBUG:
         path('', include('news.urls')),
         path('admin/', admin.site.urls),
         path('__debug__/', include('debug_toolbar.urls')),
+        path('ckeditor/', include('ckeditor_uploader.urls')),
     ] + static(settings.MEDIA_URL,
                document_root=settings.MEDIA_ROOT)
+    urlpatterns += [
+        path('captcha/', include('captcha.urls')),
+    ]
 else:
     urlpatterns = [
         path('admin/', admin.site.urls),
         path('', include('news.urls')),
+    ]
+    urlpatterns += [
+        path('captcha/', include('captcha.urls')),
     ]

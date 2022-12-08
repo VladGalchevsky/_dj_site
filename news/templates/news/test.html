@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Зворотній звязок
+{% endblock title %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock sidebar %}
+
+{% block content %}
+<h1>Зворотній звязок</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Надіслати</button>
+</form>
+{% endblock content %}
